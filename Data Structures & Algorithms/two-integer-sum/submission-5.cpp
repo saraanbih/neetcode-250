@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) 
+    {
+        unordered_map<int,int> m;
+        int complement;
+
+        for(int i=0;i<nums.size();i++)
+        {
+            complement = target - nums[i];
+            if(m.find(complement) != m.end())
+              return {m[complement],i};
+
+            m.insert({nums[i],i}); 
+        }
+
+        return {};
+        
+    }
+};
